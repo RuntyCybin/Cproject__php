@@ -28,7 +28,7 @@
                                             <th>Nombre</th>
                                             <th>Nick</th>
                                             <th>edad</th>
-                                            <th>categoria</th>
+                                            <th>id_categoria</th>
                                         </tr>
                                     </thead>
 
@@ -38,7 +38,7 @@
                                             <th>Nombre</th>
                                             <th>Nick</th>
                                             <th>edad.</th>
-                                            <th>categoria</th>
+                                            <th>id_categoria</th>
                                         </tr>
                                     </tfoot>
                                 </table>

@@ -9,18 +9,20 @@ if ($ajax) {
     //$con = $connection ->selectDatabase($conexion); //creamos la conexion
 }
 
-
-
 $sql_get_users = "SELECT id, nombre, nickname, edad, id_categoria FROM users";
 $consulta_users = $connection ->_select_query($sql_get_users);
-var_dump($consulta_users);
-foreach($consulta_users as $key => $val){
+
+$elements = array();
+//print_r($connection->result);
+$cnt = 0;
+for($i = 0; $i < $connection->num_registros; $i++){
     
-    $id = $consulta_users[$key]['id'];
-    $nombre = $consulta_users[$key]['nombre'];
-    $nickname = $consulta_users[$key]['nickname'];
-    $edad = $consulta_users[$key]['edad'];
-    $categoria = $consulta_users[$key]['id_categoria'];
+    $id = $connection->result[$i]['id'];
+    $nombre = $connection->result[$i]['nombre'];
+    $nickname = $connection->result[$i]['nickname'];
+    $edad = $connection->result[$i]['edad'];
+    $categoria = $connection->result[$i]['id_categoria'];
+    
     $aux = array(
                 'Id' => '"'.$id.'"',
                 'Nombre' => '"'.$nombre.'"',
@@ -29,6 +31,8 @@ foreach($consulta_users as $key => $val){
                 'id_categoria' => '"'.$categoria.'"'
             );
     array_push($elements, $aux);
+    unset($aux);
+    //var_dump($elements);
     $cnt += 1;
 }
 
@@ -61,7 +65,7 @@ if($rs_get_users){
 
 if ($ajax) {
     echo json_encode(array(
-        'elements' => $elements,
+        'aaData' => $elements,
         'draw' => 1,
         'recordsTotal' => $cnt,
         'recordsFiltered' => $cnt

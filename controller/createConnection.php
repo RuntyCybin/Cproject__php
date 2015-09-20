@@ -6,7 +6,7 @@ class createConnection {
     Var $password = "";
     var $database = "cproject_db";
     var $num_registros;
-    //var $result;
+    var $result;
     var $myconn;
     var $valores_add;
     var $rows;
@@ -63,26 +63,25 @@ class createConnection {
         if ($rs_sql) {
             $this->num_registros = mysqli_num_rows($rs_sql);
             
-            $values = array();
             $aux_array = array();
+            //recorremos los registros recogidos de la consulta
             for ($j = 0; $j < $this->num_registros; $j++) {
-                $lineas = mysqli_fetch_array($rs_sql);
-                $key = array_keys($lineas);
+                $lineas = mysqli_fetch_array($rs_sql); //leemos el registro
+                $key = array_keys($lineas); //dividimos la fila por columnas
+                //recorremos las columnas
                 for ($i = 0; $i < COUNT($key); $i++) {
+                    //si obtenemos mas de una linea de la select, dividimos el resultado por numeros
                     if ($this->num_registros > 1) {
-                        $aux_array[$j][$key[$i]] = $lineas[$key[$i]];
-                        array_push($values, $aux_array[$j][$key[$i]]);
-                        //return $values;
+                        $this->result[$j][$key[$i]] = $lineas[$key[$i]];
                     } else if ($this->num_registros < 1) {
-                        $aux_array[$j][$key[$i]] = NULL;
+                        $this->result = NULL;
                     } else {
-                        $aux_array[$key[$i]] = $lineas[$key[$i]];
-                        array_push($values, $aux_array[$j][$key[$i]]);
-                        //return $values;
+                        //si solo tenemos una linea, mostramos un array simple
+                        $this->result[$key[$i]] = $lineas[$key[$i]];
                     }
                 }
             }
-            return $values;
+            //return $aux_array;
         } else {
             echo "ERROR en la consulta!";
         }

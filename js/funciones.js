@@ -11,7 +11,7 @@ function cargarTabla() {
             {"data": "Nombre"},
             {"data": "Nick"},
             {"data": "edad"},
-            {"data": "categoria"}
+            {"data": "id_categoria"}
         ]
     });
 }
