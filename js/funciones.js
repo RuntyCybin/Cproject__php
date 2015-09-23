@@ -15,3 +15,7 @@ function cargarTabla() {
         ]
     });
 }
+
+function nuevoUsuario(){
+    
+}
