@@ -1,20 +1,15 @@
 <!DOCTYPE html>
-
 <?php
 include '/vista/header.php';
+//echo "the new project has started";
 ?>
+<div class="fluid-container">
 
-<body>
     <?php
-    //echo "the new project has started";
+    include '/vista/main.php';
     ?>
-    <div class="fluid-container">
-        
-        <?php
-        include '/vista/main.php';
-        ?>
-    </div>
-    <?php
-    include '/vista/footer.php';
-    include '/controller/user.php';
-    ?>
+</div>
+<?php
+include '/vista/footer.php';
+include '/controller/user.php';
+?>

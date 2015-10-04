@@ -3,7 +3,7 @@
 class createConnection {
     var $host = "localhost";
     var $username = "root";    // specify the sever details for mysql
-    Var $password = "";
+    var $password = "";
     var $database = "cproject_db";
     var $num_registros;
     var $result;
@@ -39,11 +39,15 @@ class createConnection {
     
     private function tableExists($table) {
         $exists = false;
-        $sql_table_in_db = "SHOW TABLES FROM '" . $this->database . "' LIKE '" . $table . "'";
+        //$sql_table_in_db = "SHOW TABLES FROM '" . $this->database . "' LIKE '" . $table . "'";
+        $sql_table_in_db = "SELECT * FROM information_schema.`TABLES` WHERE TABLE_SCHEMA LIKE '".$this->database."' AND TABLE_NAME LIKE '".$table."'";
+        
         $rs_table_in_db = mysqli_query($this->myconn, $sql_table_in_db);
+        
         if ($rs_table_in_db) {
-            $lines_table_in_db = mysql_num_rows($rs_table_in_db);
-            if ($lines_table_in_db == 1) {
+            
+            $lines_table_in_db = mysqli_num_rows($rs_table_in_db);
+            if ($lines_table_in_db >= 1) {
                 $exists = true;
             } else {
                 $exists = false;
@@ -88,17 +92,20 @@ class createConnection {
     }
 
     public function _insert_query($table) {
+        
         $added = false;
+        
         //si la tabla existe en la base de datos
         if ($this->tableExists($table)) {
-            $sql_insert = "INSERT INTO '" . $table . "'";
-
+            $sql_insert = "INSERT INTO " . $table . "";
+            
             if ($this->rows != null) {
-                $sql_insert .= "(" . $this->rows . ")";
+                $vars = implode(",", $this->rows);
+                $sql_insert .= "(" . $vars . ")";
             }
 
             $sql_insert .= " VALUES ";
-
+            
             //recorremos los nombres de las columnas
             for ($i = 0; $i < COUNT($this->rows); $i++) {
                 if (is_string($this->valores_add[$i]))
@@ -108,7 +115,7 @@ class createConnection {
             $this->valores_add = implode(",", $this->valores_add); //convertimos el array de valores en un string separado por comas
 
             $sql_insert .= "(" . $this->valores_add . ")";
-
+            
             $rs_insert = mysqli_query($this->myconn,$sql_insert);
 
             if ($rs_insert) {

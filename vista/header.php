@@ -42,6 +42,8 @@ echo '
             <script>
                 $(document).ready(function () {
                     cargarTabla();
+                    nuevoUsuario();
                 });
             </script>
-        </head>';
+        </head>
+        <body>';
