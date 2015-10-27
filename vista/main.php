@@ -29,6 +29,7 @@
                                             <th>Nick</th>
                                             <th>edad</th>
                                             <th>id_categoria</th>
+                                            <th>opciones</th>
                                         </tr>
                                     </thead>
 
@@ -39,6 +40,7 @@
                                             <th>Nick</th>
                                             <th>edad.</th>
                                             <th>id_categoria</th>
+                                            <th>opciones</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -48,7 +50,7 @@
                     </div>
                     <div class="col-md-2" id="menuBox" >
                         <div id="st-trigger-effects">
-                            <button class="button button--winona button--border-thin button--round-s" data-effect="st-effect-1" data-text="Ver menu" style="margin-top: 0px;"><span>Ver menu</span></button>
+                            <button data-target="#newUs" class="button button--winona button--border-thin button--round-s" data-effect="st-effect-1" data-text="Ver menu" style="margin-top: 0px;"><span>Ver menu</span></button>
                         </div>
                         <button data-target="#newUs" data-toggle="modal" id="newUser" class="button button--winona button--border-thin button--round-s" data-text="Añadir" style="margin-top: 0px;"><span>Añadir</span></button>
                         <button class="button button--winona button--border-thin button--round-s" data-text="Volver" style="margin-top: 0px;"><span>Volver</span></button>

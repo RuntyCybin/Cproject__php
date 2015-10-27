@@ -5,7 +5,6 @@ if ($ajax) {
     
     $connection = new createConnection();
     $conexion = $connection->connectToDatabase();
-    
     //$con = $connection ->selectDatabase($conexion); //creamos la conexion
 }
 
@@ -32,7 +31,7 @@ for($i = 0; $i < $connection->num_registros; $i++){
             );
     array_push($elements, $aux);
     unset($aux);
-    //var_dump($elements);
+    //echo "mi array: ";var_dump($elements);
     $cnt += 1;
 }
 

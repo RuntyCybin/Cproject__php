@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/wamp/www/CProject.dev/vista/footer.php</file>
+            <file>file:/C:/wamp/www/CProject.dev/vista/header.php</file>
+            <file>file:/C:/wamp/www/CProject.dev/js/funciones.js</file>
+            <file>file:/C:/wamp/www/CProject.dev/vista/modals.php</file>
+            <file>file:/C:/wamp/www/CProject.dev/controller/modal.php</file>
+            <file>file:/C:/wamp/www/CProject.dev/index.php</file>
+            <file>file:/C:/wamp/www/CProject.dev/model/post.php</file>
+            <file>file:/C:/wamp/www/CProject.dev/vista/main.php</file>
+            <file>file:/C:/wamp/www/CProject.dev/controller/user.php</file>
+        </group>
     </open-files>
 </project-private>
